@@ -2,17 +2,16 @@
 #修改TNAME: MINI 中的MINI为你需要编译的型号，注意名称要与configs/templates/目录下的名字相同
 name: Build Padavan
 
-on: 
+on:
   release:
     types: [published]
   push:
- 
-  #  branches: 
-  #    - master
-#  schedule:
+    branches:
+      - master
+ #  schedule:
 #    - cron: 0 8 * * 5
- # watch:
- #   types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
