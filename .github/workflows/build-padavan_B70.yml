@@ -2,7 +2,7 @@ name: Build Padavan
 on: 
   release:
     types: [published]
-    push:
+ #   push:
  #    tags:
  #    - 'v*'
  #  branches: 
