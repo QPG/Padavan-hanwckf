@@ -29,7 +29,7 @@ jobs:
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev gcc-multilib
     - name: Clone source code
       run: |
-        git clone -b PSG1218 git clone https://bitbucket.org/stevengan/padavan.git /opt/rt-n56u
+        git clone -b PSG1218 https://bitbucket.org/stevengan/padavan.git /opt/rt-n56u
         cd /opt/rt-n56u/toolchain-mipsel
         ./clean_toolchain_3.4.x
         ./build_toolchain_3.4.x
