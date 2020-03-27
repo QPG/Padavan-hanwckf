@@ -33,10 +33,9 @@ jobs:
         mkdir -p /opt/images/
     - name: build_toolchain-mipsel
       run: |
-         
-        cd /opt/rt-n56u/toolchain-mipsel
-        ./clean_toolchain_3.4.x
-        ./build_toolchain_3.4.x
+          cd /opt/rt-n56u/toolchain-mipsel
+          ./clean_toolchain_3.4.x
+          ./build_toolchain_3.4.x
          
     - name: Build Firmware
       env:
