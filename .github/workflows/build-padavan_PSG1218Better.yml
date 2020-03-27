@@ -30,10 +30,14 @@ jobs:
     - name: Clone source code
       run: |
         git clone -b PSG1218 https://bitbucket.org/stevengan/padavan.git /opt/rt-n56u
+        mkdir -p /opt/images/
+    - name: build_toolchain-mipsel
+      run: |
+         
         cd /opt/rt-n56u/toolchain-mipsel
         ./clean_toolchain_3.4.x
         ./build_toolchain_3.4.x
-        mkdir -p /opt/images/
+         
     - name: Build Firmware
       env:
         TNAME: psg1218_base
