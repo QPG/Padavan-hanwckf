@@ -1,4 +1,4 @@
-name: Build Padavan B70
+name: Build Padavan RM2100
 on: 
  # release:
  #   types: [published]
