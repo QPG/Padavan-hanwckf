@@ -26,6 +26,8 @@ env:
   CLONE_URL: https://github.com/hanwckf/rt-n56u.git    # padavan  地址
   CLONE_BRANCH: master              # padavan 分支
   WORK_PATH: /opt/rt-n56u           # 工作目录 一定要加 /
+  UPLOAD_COWTRANSFER: true
+  UPLOAD_WETRANSFER: true
 jobs:
   build:
     runs-on: ubuntu-18.04
