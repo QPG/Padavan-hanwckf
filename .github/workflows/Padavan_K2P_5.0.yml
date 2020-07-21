@@ -17,7 +17,7 @@ on:
   watch:
     types: [started]
 env:
-  T_NAMES: "K2P_nano-5.0"        # 设备名字数组
+  T_NAMES: "K2P"        # 设备名字数组
   BASE_PATH: padavan                # 基础目录
   PUBLIC_PATH: public               # 公共目录
   VERSION_FILE: versions.inc        # 版本后缀
