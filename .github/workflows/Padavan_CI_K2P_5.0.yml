@@ -2,7 +2,7 @@
 #  自动构建 PSG1218
 #      
 # # # # # # # # # # #
-name: Padavan CI K2带原厂增益
+name: Padavan CI K2P_5.0
 on: 
   release:
     types: [published]
@@ -17,13 +17,13 @@ on:
   watch:
     types: [started]
 env:
-  T_NAMES: "PSG1218"        # 设备名字数组
+  T_NAMES: "K2P_nano-5.0"        # 设备名字数组
   BASE_PATH: padavan                # 基础目录
   PUBLIC_PATH: public               # 公共目录
   VERSION_FILE: versions.inc        # 版本后缀
   PUBLIC_SH: public.sh              # 公共命令
   UPLOAD_FIRMWARE: true             # 是否打包文件
-  CLONE_URL: https://github.com/chenxudong2020/rt-n56u.git    # padavan  地址
+  CLONE_URL: https://github.com/hanwckf/rt-n56u.git    # padavan  地址
   CLONE_BRANCH: master              # padavan 分支
   WORK_PATH: /opt/rt-n56u           # 工作目录 一定要加 /
 jobs:
