@@ -26,6 +26,8 @@ env:
   CLONE_URL: https://github.com/hanwckf/rt-n56u.git    # padavan  地址
   CLONE_BRANCH: master              # padavan 分支
   WORK_PATH: /opt/rt-n56u           # 工作目录 一定要加 /
+  UPLOAD_COWTRANSFER: true
+  UPLOAD_WETRANSFER: true
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -100,3 +102,15 @@ jobs:
       with:
         name: Padavan-${{env.FILE_NAME}}
         path: ${{ env.IMAGES_PATH }}
+    - name: Upload firmware to cowtransfer
+      if: env.UPLOAD_COWTRANSFER == 'true' && success()
+      run: |
+        curl -fsSL git.io/file-transfer | sh
+        ./transfer cow --block 2621440 -s -p 64 --no-progress ${IMAGES_PATH} 2>&1 | tee cowtransfer.log
+        echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
+    - name: Upload firmware to WeTransfer
+      if: env.UPLOAD_WETRANSFER == 'true' && success()
+      run: |
+        curl -fsSL git.io/file-transfer | sh
+        ./transfer wet -s -p 16 --no-progress ${IMAGES_PATH} 2>&1 | tee wetransfer.log
+        echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
