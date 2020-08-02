@@ -24,7 +24,7 @@ env:
   PUBLIC_SH: public.sh              # 公共命令
   THEME_PATH: theme
   UPLOAD_FIRMWARE: true             # 是否打包文件
-  CLONE_URL: https://github.com/Yonsm/rt-n56u.git    # padavan  地址
+  CLONE_URL: https://gitee.com/hanwckf/rt-n56u.git    # padavan  地址
   CLONE_BRANCH: master              # padavan 分支
   WORK_PATH: /opt/rt-n56u           # 工作目录 一定要加 /
   UPLOAD_COWTRANSFER: true
@@ -104,7 +104,7 @@ jobs:
         fi
         # 4. 清理构建
         sudo ./clear_tree  
-        sudo fakeroot ./build_firmware_modify $t_item          # $t_item  是循环的子对象
+        sudo ./build_firmware_modify $t_item          # $t_item  是循环的子对象
         sudo mv -f images/*.trx ${WORK_PATH}/images/
         done
         echo "::set-env name=FILE_NAME::$T_NAMES-$(date "+%Y%m%d")"  # 包名
