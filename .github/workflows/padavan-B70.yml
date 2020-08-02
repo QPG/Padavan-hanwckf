@@ -79,11 +79,15 @@ jobs:
           sudo chmod +x $WORK_PATH/$t_item.sh
           echo "${t_item} 自定义SH文件拷贝成功"
         fi
-        if [ ! -f $BASE_PATH/$t_item/$THEME_PATH ] ; then
+         if [ ! -d $BASE_PATH/$t_item/$THEME_PATH ] ; then
           echo "${BASE_PATH}/${t_item}/${THEME_PATH} 自定义主题文件夹未找到"
-        else
-          cp -r $BASE_PATH/$t_item/$THEME_PATH  $WORK_PATH/
-          echo "${THEME_PATH} 自定义主题文件夹拷贝成功"
+        elif [! -d $WORK_PATH/$THEME_PATH ] ; then
+              cp -r $BASE_PATH/$t_item/$THEME_PATH  $WORK_PATH/
+              echo "${THEME_PATH} 自定义主题文件夹拷贝成功"  
+           else
+              rm -rf $WORK_PATH/$THEME_PATH
+              cp -r $BASE_PATH/$t_item/$THEME_PATH  $WORK_PATH/
+              echo "${THEME_PATH} 自定义主题文件夹拷贝成功"  
         fi
         done
         # 3. 开始构建
