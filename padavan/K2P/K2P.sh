@@ -5,4 +5,4 @@ sed -i "s/BOARD_PID/\"PHICOMM\"/g" $default_path
 sudo rm -rf $default_theme_path/bootstrap
 sudo rm -rf $default_theme_path/device-map
 sudo rm -rf $default_theme_path/images
-cp -f theme $default_theme_path
+cp -rf theme/. $default_theme_path
