@@ -22,6 +22,7 @@ env:
   PUBLIC_PATH: public               # 公共目录
   VERSION_FILE: versions.inc        # 版本后缀
   PUBLIC_SH: public.sh              # 公共命令
+  THEME_PATH: theme
   UPLOAD_FIRMWARE: true             # 是否打包文件
   CLONE_URL: https://github.com/hanwckf/rt-n56u.git    # padavan  地址
   CLONE_BRANCH: master              # padavan 分支
@@ -59,6 +60,7 @@ jobs:
     - name: Clear And Build            # 5.清理构建树并开始构建
       run: |
         # 1.拷贝公共文件
+        cp -r $BASE_PATH/$PUBLIC_PATH/$THEME_PATH  $WORK_PATH/
         cp -f $BASE_PATH/$PUBLIC_PATH/$PUBLIC_SH  $WORK_PATH/
         sudo chmod +x $WORK_PATH/$PUBLIC_SH
         # 2. 循环替换自定义默认模板和构建，单个设备的 sh 拷贝 t_item 需要编译的固件名字
